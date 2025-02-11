@@ -1,6 +1,6 @@
 // server/api/shipping.js
 import { NextResponse } from 'next/server';
-import prisma from '../../util/prisma';
+import prisma from '../../../util/prisma';
 
 export async function POST(request) {
   try {

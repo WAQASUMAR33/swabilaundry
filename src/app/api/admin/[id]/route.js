@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import prisma from '../../../util/prisma';
+import prisma from '../../../../util/prisma';
 // import prisma from "../../../util/prisma";
 
 // GET request to fetch a specific admin user by ID

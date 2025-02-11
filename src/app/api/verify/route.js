@@ -1,4 +1,4 @@
-import prisma from '../../util/prisma'
+import prisma from '../../../util/prisma'
 export async function GET(request) {
   const url = new URL(request.url);
   const token = url.searchParams.get('token');
