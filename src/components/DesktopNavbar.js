@@ -386,6 +386,16 @@ const DesktopNavbar = () => {
           >
             FAQ
           </Link>
+
+
+          <Link
+            href="/pages/blog/"
+            className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg"
+          >
+            Blog
+          </Link>
+
+
         </div>
 
         {/* WhatsApp Section */}
