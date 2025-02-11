@@ -10,7 +10,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 export const metadata = {
   title: "SwabiLaundry - Premium Laundry & Dry Cleaning Services",
   description: "SwabiLaundry offers premium laundry & dry cleaning services. Quality care for your garments. Convenient, reliable, and tailored to your needs. Book now!",
-  googleSiteVerification: "u5ilm-FmCTEczbpWodYx_fVQLFMWDRgiqHcPJlifo" // Add your verification code here
+  googleSiteVerification: "opN22_c8ZaqCdI6omRIAKixyAbamGUEMS7-GErhyOAE" // Add your verification code here
 };
 
 export default function RootLayout({ children }) {
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
          <title>{metadata.title}</title>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-     
+   
      
         <link rel="icon" href="/favicon.ico" />
         {/* Global Site Tag (gtag.js) - Google Ads */}
@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
         <div>{children}</div>
       </body>
 
-      <GoogleAnalytics gaId="AW-11228899050" />
+      <GoogleAnalytics gaId="G-39GZ5XPD11" />
     </html>
   );
 }

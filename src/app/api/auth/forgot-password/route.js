@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '../../../../util/prisma';
 import crypto from 'crypto';
-import { sendResetPasswordEmail } from '../../../util/sendResetPasswordEmail';
+import { sendResetPasswordEmail } from '../../../../util/sendVerificationEmail';
 
 export async function POST(request) {
   try {
