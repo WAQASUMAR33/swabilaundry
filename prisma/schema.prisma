@@ -1,0 +1,196 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Locations{
+  id               Int           @id @default(autoincrement())
+  name             String
+  description      String
+  slug             String         @unique // Slug field to store the unique URL-friendly name
+  imageUrl         String?
+  image_alt        String?
+  image_caption    String?
+  meta_title       String?
+  meta_description String?
+  meta_keywords    String?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+model Category {
+  id               Int           @id @default(autoincrement())
+  name             String
+  slug             String         @unique // Slug field to store the unique URL-friendly name
+  imageUrl         String?
+  subcategories    Subcategory[]
+  meta_title       String?
+  meta_description String?
+  meta_keywords    String?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+
+model Subcategory {
+  id               Int          @id @default(autoincrement())
+  name             String
+  description      String
+  slug             String        @unique // Add slug field for SEO-friendly URLs
+  imageUrl         String?  
+  categoryId       Int
+  category         Category     @relation(fields: [categoryId], references: [id])
+  // SEO fields
+  meta_title       String?
+  meta_description String?
+  meta_keywords    String?
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+}
+
+
+model SocialMedia {
+  id        Int      @id @default(autoincrement())
+  facebook  String?  // URL for Facebook
+  instagram String?  // URL for Instagram
+  twitter   String?  // URL for Twitter
+  tiktok    String?  // URL for TikTok
+  pinterest String?  // URL for Pinterest
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Blogcategories {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Blog {
+  id                Int      @id @default(autoincrement())
+  title             String
+  description       String   @db.Text
+  image             String
+  category          String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  meta_description  String?
+  meta_title        String?
+  meta_focusKeyword String?
+  web_slug          String?
+}
+
+
+model ContactInfo{
+  id        Int      @id @default(autoincrement())
+  phoneNumber  String
+  email         String
+  address       String
+  website       String
+  owner         String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model PrivacyPolicy{
+  id        Int       @id @default(autoincrement())
+  Title      String
+  description   String
+  Text     String     @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TermAndConditions{
+  id        Int       @id @default(autoincrement())
+  Title      String
+  description   String
+  Text     String     @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model ShippingPolicy{
+  id        Int       @id @default(autoincrement())
+  Title      String
+  description   String
+  Text     String     @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model ReturnAndExchangePolicy{
+  id        Int       @id @default(autoincrement())
+  Title      String
+  description   String
+  Text     String     @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AboutUs{
+  id        Int       @id @default(autoincrement())
+  Title      String
+  description   String
+  Text     String     @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Slider {
+  id      Int    @id @default(autoincrement())
+  imgurl  String
+  link    String
+}
+
+
+model ContactUs{
+  id        Int       @id @default(autoincrement())
+  Title      String
+  description   String
+  Text     String     @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Faq{
+  id        Int       @id @default(autoincrement())
+  question      String
+  answer   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
+
+model User {
+  id                      Int       @id @default(autoincrement())
+  email                   String?   @unique
+  password                String?
+  name                    String?
+  role                    String?
+  status                  Int?
+  verificationToken  String?  @unique
+  verificationTokenExpires DateTime? // Field to store token expiration
+  emailVerified           Boolean   @default(false) // Field to store verification status
+  resetToken              String?   @unique
+  resetTokenExpires       DateTime?
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime  @updatedAt
+}
