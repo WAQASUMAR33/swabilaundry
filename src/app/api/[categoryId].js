@@ -1,6 +1,6 @@
 // src/api/category/[categoryId].js
 import { NextApiRequest, NextApiResponse } from 'next';
-import prisma from '../../../util/prisma';
+import prisma from '../../util/prisma';
 
 export default async function handler(req, res) {
   const { categoryId } = req.query;

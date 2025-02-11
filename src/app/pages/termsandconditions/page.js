@@ -2,7 +2,7 @@
 import Head from "next/head";
 import React from "react";
 import Contentsection from "./components/Contentsection";
-import AboveFooter from "@/components/abovefooter";
+import AboveFooter from "../../../components/abovefooter";
 import Termstag from "./components/termstag";
 
 export const metadata = {
