@@ -1,15 +1,6 @@
 // pages/index.js
-import AboveFooter from "@/components/abovefooter";
-import Benefits from "@/components/Benefits";
-import Hero from "@/components/Herosection";
-import HowItWorks from "@/components/HowItsWorks";
-import LaundryServices from "@/components/laundryservices";
-import OrderForm from "@/components/orderform";
-import Productpropcomponent from "@/components/productprop";
-import Testimonials from "@/components/testimonial";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Script from 'next/script';
-import Navbar from "@/components/DesktopNavbar";
+import HomePage from "@/app/home/page";
+
 
 export const metadata = {
   title: "SwabiLaundry - Premium Laundry & Dry Cleaning Services",
@@ -81,25 +72,7 @@ export default function Home() {
       </Script> */}
 
       <title>{metadata.title}</title>
-      <Navbar />
-      <Hero />
-      
-       <LaundryServices />
-       <OrderForm />
-       <WhyChooseUs/>
-      <Benefits />
-      <HowItWorks/>
-      <Productpropcomponent
-      benefit="Swabi Laundry"
-      image="/propimg4.png"
-      title="Effortless Laundry Service – Fresh, Clean & Delivered to Your Door"
-      description1="Tired of laundry piling up? We make it easy with fast, reliable pickup and delivery services right to your doorstep. Our professional team handles everything from wash & fold, dry cleaning, stain removal, and delicate fabric care, using eco-friendly detergents that are safe for your clothes and the environment. Whether it’s business attire, casual wear, or specialty items like leather shoes and curtains, we ensure meticulous cleaning, expert care, and a hassle-free experience. With same-day service options and flexible scheduling, getting your laundry done has never been more convenient."
-      description2="At Swabi Laundry, we go beyond just cleaning—we revive, refresh, and restore your garments to perfection. Our gentle yet powerful stain treatments, deep fabric conditioning, and odor removal techniques keep your clothes looking and feeling new for longer. We specialize in premium fabric care, professional pressing, and long-lasting freshness, so you always step out with confidence. Say goodbye to laundry stress and enjoy more free time while we handle the rest—because clean clothes should be effortless!"
-      align="left"
-/>
-      <Testimonials />
-    
-      <AboveFooter /> 
+      <HomePage/>
     </div>
   );
 }

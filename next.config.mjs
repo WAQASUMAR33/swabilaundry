@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'swabiapi.swabilaundry.ae'  
+            hostname: 'swabiapp.rapidtechpro.com'  
           },
         ],
       },

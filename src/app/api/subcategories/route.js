@@ -65,18 +65,18 @@ const generateSlug = (name) => {
 
 export async function GET() {
   try {
-    const subcategories = await prisma.subcategory.findMany({
+    const categories = await prisma.category.findMany({
       include: {
-        category: true,
+        subcategories: true, // Fetch subcategories related to each category
       },
     });
 
-    return NextResponse.json({ status: true, data: subcategories });
+    return NextResponse.json({ status: true, data: categories });
   } catch (error) {
-    console.error('Error fetching subcategories:', error);
+    console.error('Error fetching categories and subcategories:', error);
     return NextResponse.json(
       {
-        message: 'Failed to fetch subcategories',
+        message: 'Failed to fetch data',
         status: false,
         error: error.message,
       },

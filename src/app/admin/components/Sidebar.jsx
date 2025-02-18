@@ -174,27 +174,27 @@ const Sidebar = ({ setActiveComponent }) => {
             )}
           </li> */}
 
-          {/* <li>
+          <li>
             <button
               className="flex items-center w-full p-2 hover:bg-blue-700 rounded focus:outline-none"
-              onClick={() => toggleDropdown('coupons')}
+              onClick={() => toggleDropdown('locations')}
             >
               <FaTicketAlt className="h-5 w-5" />
-              <span className="ml-2">Coupons</span>
+              <span className="ml-2">Locations</span>
               <FaChevronDown className="h-3 w-3 ml-auto" />
             </button>
-            {isDropdownOpen.coupons && (
+            {isDropdownOpen.locations && (
               <ul className="ml-8 mt-2 space-y-2">
                 <li>
-                  <a href='/admin/pages/coupons'>
+                  <a href='/admin/pages/Locations'>
                     <button className="flex items-center p-2 hover:bg-blue-700 rounded">
-                      <span className="ml-2">Coupons</span>
+                      <span className="ml-2">Locations</span>
                     </button>
                   </a>
                 </li>
               </ul>
             )}
-          </li> */}
+          </li>
 
           <li>
             <button

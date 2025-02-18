@@ -15,14 +15,44 @@ model Locations{
   description      String
   slug             String         @unique // Slug field to store the unique URL-friendly name
   imageUrl         String?
-  image_alt        String?
-  image_caption    String?
   meta_title       String?
   meta_description String?
   meta_keywords    String?
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
 }
+
+
+
+model HomePage {
+  id               Int           @id @default(autoincrement())
+  slug             String         @unique // Slug field to store the unique URL-friendly name 
+  meta_title       String?
+  meta_description String?
+  meta_keywords    String?
+ 
+  heading1         String 
+  heading2         String 
+  heading3         String
+  heading4         String 
+
+  content1         String @db.Text
+  content2         String @db.Text
+  content3         String @db.Text
+  content4         String @db.Text
+
+  img1             String 
+  img2             String 
+  img3             String
+  img4             String
+ 
+  others           String
+ 
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+
 
 model Category {
   id               Int           @id @default(autoincrement())
@@ -68,11 +98,16 @@ model SocialMedia {
 
 
 model Blogcategories {
-  id          Int      @id @default(autoincrement())
-  title       String?
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                Int      @id @default(autoincrement())
+  title             String?
+  description       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  image             String?
+  meta_description  String?  @db.Text
+  meta_focusKeyword String?
+  meta_title        String?
+  web_slug          String?
 }
 
 model Blog {

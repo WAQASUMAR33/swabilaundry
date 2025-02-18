@@ -30,7 +30,7 @@ const LoginPage = () => {
       // Redirect to the appropriate page based on stored role
       const userRole = localStorage.getItem('role');
       if (userRole === 'ADMIN') {
-        router.push('/admin/pages/Products');
+        router.push('/admin/pages/categories');
       } else if (userRole === 'CUSTOMER') {
         router.push('/customer/pages/login');
       }

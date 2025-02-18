@@ -63,6 +63,8 @@ export default function AboutPage() {
         })}} />
       </Head>
 
+
+      <Navbar/>
       <div style={{ marginTop: "150px" }}>
         <Productpropcomponent
           image="/propimg4.png"

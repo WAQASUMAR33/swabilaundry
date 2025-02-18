@@ -1,61 +1,55 @@
-"use client";
-import Head from "../../../components/DesktopNavbar";
-import React from "react";
-import Contentsection from "./components/Contentsection";
-import AboveFooter from "../../../components/abovefooter";
-import Termstag from "./components/termstag";
-import { metadata } from "./metadata"; // ✅ Import metadata separately
+'use client'
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import axios from 'axios';
 
-export default function TermsAndConditions() {
-  const pageUrl = `${metadata.siteUrl}/${metadata.slug}`;
+const Terms = () => {
+  const [termsData, setTermsData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch Terms and Conditions data from API
+    const fetchTermsData = async () => {
+      try {
+        const response = await axios.get('/api/termsandconditions');
+        if (response.data && response.data.length > 0) {
+          setTermsData(response.data[0]); // Assume only one Terms and Conditions record
+        }
+      } catch (error) {
+        console.error('Error fetching Terms and Conditions data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTermsData();
+  }, []);
+
+  if (loading) {
+    return <p className="text-center">Loading Terms and Conditions...</p>;
+  }
 
   return (
     <>
       <Head>
-        {/* Primary SEO Meta Tags */}
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="author" content={metadata.author} />
-        <link rel="canonical" href={pageUrl} />
-
-        {/* Open Graph / Facebook Meta Tags */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={metadata.openGraph.url} />
-        <meta property="og:title" content={metadata.openGraph.title} />
-        <meta property="og:description" content={metadata.openGraph.description} />
-        <meta property="og:image" content={metadata.openGraph.images[0].url} />
-        <meta property="og:image:width" content={metadata.openGraph.images[0].width} />
-        <meta property="og:image:height" content={metadata.openGraph.images[0].height} />
-        <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.openGraph.title} />
-        <meta name="twitter:description" content={metadata.openGraph.description} />
-        <meta name="twitter:image" content={metadata.openGraph.images[0].url} />
-
-        {/* Schema Markup for SEO (Structured Data) */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": metadata.title,
-            "description": metadata.description,
-            "url": pageUrl,
-            "image": metadata.openGraph.images[0].url,
-            "publisher": {
-              "@type": "Organization",
-              "name": "Swabi Laundry",
-              "url": metadata.siteUrl,
-            },
-          })}
-        </script>
+        <title>Terms and Conditions - swabilaundry.ae</title>
       </Head>
-
-      <Termstag />
-      <Contentsection />
-      <AboveFooter />
+      <div className='h-40'></div>
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        {termsData ? (
+          <>
+            <h1 className="text-4xl font-bold mb-8 text-center">{termsData.Title}</h1>
+            <p className="text-sm text-gray-500 mb-4">
+              Last Updated: {termsData.updatedAt ? new Date(termsData.updatedAt).toLocaleDateString() : 'N/A'}
+            </p>
+            <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: termsData.Text }} />
+          </>
+        ) : (
+          <p className="text-center">Terms and Conditions content is unavailable.</p>
+        )}
+      </div>
     </>
   );
-}
+};
+
+export default Terms;
