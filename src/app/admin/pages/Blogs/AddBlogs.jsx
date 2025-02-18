@@ -133,18 +133,29 @@ const AddBlogs = () => {
     }
   };
 
+
+
   const uploadImageToExternalAPI = async (imageBase64) => {
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_UPLOAD_IMAGE_API}`,
-        { image: imageBase64 }
+        process.env.NEXT_PUBLIC_UPLOAD_IMAGE_API,
+        { image: imageBase64 },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
-      return response.data.image_url; 
+  
+      return response.data.image_url;
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error uploading image:", error.response?.data || error.message);
       throw new Error("Image upload failed");
     }
   };
+  
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
