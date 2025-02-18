@@ -87,8 +87,7 @@ export default function BusinessPage() {
         align="right"
       />
 
-      <br />
-      <AboveFooter />
+      <br/>
     </div>
   );
 }

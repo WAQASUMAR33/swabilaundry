@@ -17,7 +17,7 @@ const DesktopNavbar = () => {
   const encodedMessage = encodeURIComponent(message);
 
   const handleClick = () => {
-    sendGTMEvent({ event: "whatsappclick", value: "xyz" });
+    sendGTMEvent({ event: "whatsappclick", value: "kjxyz" });
     console.log("WhatsApp link clicked");
   };
 
@@ -29,7 +29,7 @@ const DesktopNavbar = () => {
       .catch((err) => console.error("Error fetching services:", err));
 
     // Fetch locations
-    fetch("http://localhost:3000/api/locations")
+    fetch("/api/locations")
       .then((res) => res.json())
       .then((data) => setLocations(data.data)) // ✅ Extract `data` array
       .catch((err) => console.error("Error fetching locations:", err));
@@ -53,54 +53,54 @@ const DesktopNavbar = () => {
           <Link href="/pages/aboutus/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">About</Link>
 
 
-          {/* Mega Menu - Services */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesMenuOpen(true)}
-            onMouseLeave={() => setServicesMenuOpen(false)}
-          >
-            <button className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">
-              Services
-            </button>
+         {/* Mega Menu - Services */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesMenuOpen(true)}
+              onMouseLeave={() => setServicesMenuOpen(false)}
+            >
+              <button className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">
+                Services
+              </button>
 
-            {isServicesMenuOpen && (
-              <div
-                className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-5 grid grid-cols-4 gap-5 max-w-screen-lg z-50 rounded-lg"
-                style={{ minWidth: "700px" }}
-              >
-                {services.length > 0 ? (
-                  services.map((category) => (
-                    <div key={category.id} className="col-span-1">
-                      {/* Category Name */}
-                      <h3 className="text-md font-semibold text-gray-900 border-b pb-1 mb-2">
-                        {category.name}
-                      </h3>
+              {isServicesMenuOpen && (
+                <div
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-5 grid grid-cols-5 gap-5 max-w-screen-xl z-50 rounded-lg"
+                  style={{ minWidth: "900px" }} // Increased width
+                >
+                  {services.length > 0 ? (
+                    services.map((category) => (
+                      <div key={category.id} className="col-span-1">
+                        {/* Category Name */}
+                        <h3 className="text-md font-semibold text-gray-900 border-b pb-1 mb-2">
+                          {category.name}
+                        </h3>
 
-                      {/* Subcategories */}
-                      {category.subcategories.length > 0 ? (
-                        category.subcategories.map((subcategory) => (
-                          <Link
-                            key={subcategory.id}
-                            href={`/services/${subcategory.slug}`}
-                            className="block text-sm text-gray-700 hover:text-blue-600 py-0.5"
-                          >
-                            {subcategory.name}
-                          </Link>
-                        ))
-                      ) : (
-                        <p className="text-xs text-gray-400">No subcategories</p>
-                      )}
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-sm text-gray-500">Loading...</p>
-                )}
-              </div>
-            )}
-          </div>
+                        {/* Subcategories */}
+                        {category.subcategories.length > 0 ? (
+                          category.subcategories.map((subcategory) => (
+                            <Link
+                              key={subcategory.id}
+                              href={`/pages/services/${subcategory.slug}`}
+                              className="block text-sm text-gray-700 hover:text-blue-600 py-0.5"
+                            >
+                              {subcategory.name}
+                            </Link>
+                          ))
+                        ) : (
+                          <p className="text-xs text-gray-400">No Service</p>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-sm text-gray-500">Loading...</p>
+                  )}
+                </div>
+              )}
+            </div>
 
 
-                    {/* Mega Menu - Locations (Dynamic) */}
+          {/* Mega Menu - Locations (Dynamic) */}
           <div
             className="relative"
             onMouseEnter={() => setLocationMenuOpen(true)}

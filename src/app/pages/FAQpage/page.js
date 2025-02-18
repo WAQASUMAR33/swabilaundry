@@ -41,7 +41,7 @@ export default function FAQPage() {
       <FAQ />
       <ServiceLocations />
       <br />
-      <AboveFooter />
+    
     </div>
   );
 }

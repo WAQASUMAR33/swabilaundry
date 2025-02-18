@@ -111,7 +111,7 @@ export default function Offers() {
       <Modal show={showModal} onClose={closeModal} imageSrc={modalImage} />
 
       <br />
-      <AboveFooter />
+    
     </>
   );
 }

@@ -133,7 +133,7 @@ export default function ContactUsPage() {
         </div>
       </div>
 
-      <AboveFooter />
+
     </>
   );
 }

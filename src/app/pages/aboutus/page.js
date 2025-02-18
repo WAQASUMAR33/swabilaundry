@@ -100,7 +100,6 @@ export default function AboutPage() {
       />
       <WhyChooseUs/>
       <ChoresComponent />
-      <AboveFooter />
     </>
   );
 }
