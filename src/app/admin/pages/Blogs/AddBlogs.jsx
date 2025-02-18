@@ -144,6 +144,7 @@ const AddBlogs = () => {
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "cors", // Ensure CORS is enabled
         }
       );
   
