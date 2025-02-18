@@ -55,7 +55,7 @@ export default function Blog() {
             </div>
           )}
         </main>
-        <BlogSection blogs={blogs} title="Money Saving" />
+        <BlogSection blogs={blogs} title="Laundry and Dry Cleaning Services" />
         <Subscribe />
       </div>
     </CustomerRootLayout>

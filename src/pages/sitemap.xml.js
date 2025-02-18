@@ -49,13 +49,13 @@ export async function getServerSideProps({ res }) {
         
         if (services?.data) {
             services.data.forEach(service =>
-                urls.push(createURL(`https://www.swabilaundry.ae/pages/locations/${service.slug}`, 'always', '0.5'))
+                urls.push(createURL(`https://www.swabilaundry.ae/pages/services/${service.slug}`, 'always', '0.5'))
             );
         }
        
 
         if (locations?.data) {
-            categories.data.forEach(location =>
+            locations.data.forEach(location =>
                 urls.push(createURL(`https://www.swabilaundry.ae/pages/locations/${location.slug}`, 'always', '0.5'))
             );
         }
@@ -65,11 +65,10 @@ export async function getServerSideProps({ res }) {
         urls.push(createURL('https:///www.swabilaundry.ae/pages/homepage', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/businesspage', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/contactus', 'always', '0.8'));
-        urls.push(createURL('https:///www.swabilaundry.ae/blog', 'daily', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/privacypolicy', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/termsandconditions', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/privacypolicy', 'always', '0.8'));
-        urls.push(createURL('https:///www.swabilaundry.ae/pages/FAQpage', 'always', '0.8'));
+        urls.push(createURL('https:///www.swabilaundry.ae/pages/faqpage', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/offers', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/pricing', 'always', '0.8'));
 

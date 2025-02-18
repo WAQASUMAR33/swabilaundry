@@ -31,7 +31,9 @@ const AboveFooter = () => {
               <img src='/swabi logo.png' className='w-[100px]' alt='Swabi Logo'></img>
               <img src='/swabi text.png' className='w-[100px] h-[50px] my-auto' alt='Swabi Text'></img>
             </a>
-            <p className="text-base md:text-lg text-gray-600">Swabi Laundry offers premium laundry and dry cleaning services with free pickup and delivery.</p>
+            <p className="text-base md:text-lg text-gray-600">We provide top-quality laundry, dry cleaning, and ironing services in Dubai with free pickup & delivery. Enjoy fast, affordable, and eco-friendly fabric care for your clothes, bedding, and more. We specialize in stain removal, delicate garment care, and commercial laundry solutions.
+
+Serving All of Dubai | Book Your Laundry Service Today!.</p>
           </div>
         </div>
 
