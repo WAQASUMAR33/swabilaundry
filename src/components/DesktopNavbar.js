@@ -23,7 +23,7 @@ const DesktopNavbar = () => {
 
   useEffect(() => {
     // Fetch services
-    fetch("/api/subcategories")
+    fetch("/api/subcategories/slidercat")
       .then((res) => res.json())
       .then((data) => setServices(data.data)) // ✅ Extract `data` array
       .catch((err) => console.error("Error fetching services:", err));
@@ -53,51 +53,54 @@ const DesktopNavbar = () => {
           <Link href="/pages/aboutus/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">About</Link>
 
 
-         {/* Mega Menu - Services */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesMenuOpen(true)}
-              onMouseLeave={() => setServicesMenuOpen(false)}
-            >
-              <button className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">
-                Services
-              </button>
+  {/* Mega Menu - Services */}
+<div
+  className="relative"
+  onMouseEnter={() => setServicesMenuOpen(true)}
+  onMouseLeave={() => setServicesMenuOpen(false)}
+>
+  <button className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">
+    Services
+  </button>
 
-              {isServicesMenuOpen && (
-                <div
-                  className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white shadow-lg p-5 grid grid-cols-5 gap-5 max-w-screen-xl z-50 rounded-lg"
-                  style={{ minWidth: "900px" }} // Increased width
+  {isServicesMenuOpen && (
+    <div
+    className="absolute top-full left-1/2 transform -translate-x-1/3 bg-white shadow-lg p-5 grid grid-cols-5 gap-5 w-96 max-w-screen-xl z-50 rounded-lg"
+
+      style={{ minWidth: "1100px" }} // Adjust the width as needed
+    >
+      {services.length > 0 ? (
+        services.map((category) => (
+          <div key={category.id} className="col-span-1">
+            {/* Category Name */}
+            <h3 className="text-md font-semibold text-gray-900 border-b pb-1 mb-2">
+              {category.name}
+            </h3>
+
+            {/* Subcategories */}
+            {category.subcategories.length > 0 ? (
+              category.subcategories.map((subcategory) => (
+                <Link
+                  key={subcategory.id}
+                  href={`/pages/services/${subcategory.slug}`}
+                  className="block text-sm text-gray-700 hover:text-blue-600 py-0.5"
                 >
-                  {services.length > 0 ? (
-                    services.map((category) => (
-                      <div key={category.id} className="col-span-1">
-                        {/* Category Name */}
-                        <h3 className="text-md font-semibold text-gray-900 border-b pb-1 mb-2">
-                          {category.name}
-                        </h3>
+                  {subcategory.name}
+                </Link>
+              ))
+            ) : (
+              <p className="text-xs text-gray-400">No Service</p>
+            )}
+          </div>
+        ))
+      ) : (
+        <p className="text-sm text-gray-500">Loading...</p>
+      )}
+    </div>
+  )}
+</div>
 
-                        {/* Subcategories */}
-                        {category.subcategories.length > 0 ? (
-                          category.subcategories.map((subcategory) => (
-                            <Link
-                              key={subcategory.id}
-                              href={`/pages/services/${subcategory.slug}`}
-                              className="block text-sm text-gray-700 hover:text-blue-600 py-0.5"
-                            >
-                              {subcategory.name}
-                            </Link>
-                          ))
-                        ) : (
-                          <p className="text-xs text-gray-400">No Service</p>
-                        )}
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-sm text-gray-500">Loading...</p>
-                  )}
-                </div>
-              )}
-            </div>
+
 
 
           {/* Mega Menu - Locations (Dynamic) */}
@@ -118,7 +121,7 @@ const DesktopNavbar = () => {
                     <div key={location.id} className="col-span-1">
                       {/* Location Name */}
                       <Link
-                        href={`/pages/Locations/${location.slug}`}
+                        href={`/pages/locations/${location.slug}`}
                         className="block text-sm text-gray-700 hover:text-blue-600 py-0.5"
                       >
                         {location.name}
@@ -134,8 +137,8 @@ const DesktopNavbar = () => {
 
 
           <Link href="/pages/offers/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Offers</Link>
-          <Link href="/pages/businesspage/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Price</Link>
-          <Link href="/pages/FAQpage/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">FAQ</Link>
+          <Link href="/pages/pricing/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Price</Link>
+          <Link href="/pages/faqpage/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">FAQ</Link>
           <Link href="/pages/blog/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Blog</Link>
         </div>
 

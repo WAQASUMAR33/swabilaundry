@@ -22,7 +22,7 @@ export default function CustomerRootLayout({ children }) {
       {children}
 
 
-      <Footer/>
+     
 
     </div>
  

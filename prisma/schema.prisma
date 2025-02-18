@@ -12,7 +12,7 @@ generator client {
 model Locations{
   id               Int           @id @default(autoincrement())
   name             String
-  description      String
+  description      String         @db.Text
   slug             String         @unique // Slug field to store the unique URL-friendly name
   imageUrl         String?
   meta_title       String?

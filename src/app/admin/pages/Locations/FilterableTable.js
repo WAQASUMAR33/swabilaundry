@@ -58,16 +58,14 @@ const FilterableTable = () => {
     try {
       let imageUrl = newLocation.imageUrl;
   
-      // ✅ Ensure slug is properly generated
-      if (!newLocation.slug) {
-        newLocation.slug = newLocation.name
-          .toLowerCase()
-          .replace(/\s+/g, "-")
-          .replace(/[^a-z0-9-]/g, "")
-          .trim();
-      }
+      // ✅ Generate slug from name before submitting
+      const slug = newLocation.name
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9-]/g, "")
+        .trim();
   
-      if (!newLocation.slug) {
+      if (!slug) {
         throw new Error("❌ Slug is missing");
       }
   
@@ -89,13 +87,12 @@ const FilterableTable = () => {
       }
   
       // ✅ Define the object before making the API request
-      const locationToSubmit = { ...newLocation, imageUrl };
+      const locationToSubmit = { ...newLocation, slug, imageUrl };
   
       console.log("📡 API Call Data:", locationToSubmit);
   
       // ✅ Ensure correct API URL and method
-      const isUpdating = !!newLocation.slug;
-      console.log("The value is  -------------------------------------  :" + newLocation.slug);
+      const isUpdating = !!newLocation.id;
       const apiUrl = isUpdating ? `/api/locations/${newLocation.slug}` : "/api/locations";
       const method = isUpdating ? "PUT" : "POST";
   
@@ -131,13 +128,7 @@ const FilterableTable = () => {
     setIsLoading(false);
   };
   
-  
-  
 
-
-
-
-  
 
   const handleDeleteLocation = async (slug) => {
     setIsLoading(true);
@@ -227,11 +218,19 @@ const FilterableTable = () => {
 
       {/* Modal for Adding/Editing */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-1/2">
-            <h2 className="text-xl mb-4">{newLocation.slug ? 'Edit Location' : 'Add New Location'}</h2>
+         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+         <div className="bg-white p-6 rounded shadow-lg w-3/4 max-h-screen overflow-y-auto">
+           <h2 className="text-xl mb-4">{newLocation.slug ? 'Edit Location' : 'Add New Location'}</h2>
+     
+           <input 
+              type="text" 
+              placeholder="Name" 
+              value={newLocation.name} 
+              onChange={(e) => setNewLocation({ ...newLocation, name: e.target.value })} 
+              className="w-full mb-3 p-2 border" 
+            />
 
-            <input type="text" placeholder="Name" value={newLocation.name} onChange={(e) => setNewLocation({ ...newLocation, name: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-') })} className="w-full mb-3 p-2 border" />
+           
             <input 
               type="text" 
               placeholder="Slug" 

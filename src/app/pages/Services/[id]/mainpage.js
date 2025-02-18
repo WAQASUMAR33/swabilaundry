@@ -75,7 +75,7 @@ const ServicesPage = ({ id }) => {
           <div className="w-full md:w-1/2">
             <div className="relative w-full aspect-video">
               <Image
-                src={location.imageUrl ? `${imageBaseUrl}/${location.imageUrl}` : "/placeholder.jpg"}
+                src={`${imageBaseUrl}/${location.imageUrl}`}
                 alt={location.image_alt || location.name}
                 width={0}
                 height={0}
@@ -101,7 +101,7 @@ const ServicesPage = ({ id }) => {
       <WhyChooseUs />
       <OrderForm />
       <Benifit />
-      <Footer />
+
     </>
   );
 };

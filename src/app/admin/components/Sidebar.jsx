@@ -112,6 +112,27 @@ const Sidebar = ({ setActiveComponent }) => {
 
     
 
+          <li>
+            <button
+              className="flex items-center w-full p-2 hover:bg-blue-700 rounded focus:outline-none"
+              onClick={() => toggleDropdown('homepage')}
+            >
+              <FaUsers className="h-5 w-5" />
+              <span className="ml-2">HomePage</span>
+              <FaChevronDown className="h-3 w-3 ml-auto" />
+            </button>
+            {isDropdownOpen.homepage && (
+              <ul className="ml-8 mt-2 space-y-2">
+                <li>
+                  <a href='/admin/pages/HomePage'>
+                    <button className="flex items-center p-2 hover:bg-blue-700 rounded">
+                      <span className="ml-2">HomePage</span>
+                    </button>
+                  </a>
+                </li>
+              </ul>
+            )}
+          </li>
         
 
           <li>

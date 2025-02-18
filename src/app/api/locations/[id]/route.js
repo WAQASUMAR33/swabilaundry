@@ -97,7 +97,7 @@ export async function PUT(request, { params }) {
 // Delete a location by slug (DELETE /api/locations/[slug])
 export async function DELETE(request, { params }) {
   try {
-    const { slug } = params; // ✅ Correct way to get slug
+    const slug = params.id; // ✅ FIX: Access slug directly
 
     if (!slug) {
       return NextResponse.json(

@@ -101,7 +101,7 @@ const LocationsPage = ({ id }) => {
       <WhyChooseUs />
       <OrderForm />
       <Benifit />
-      <Footer />
+    
     </>
   );
 };

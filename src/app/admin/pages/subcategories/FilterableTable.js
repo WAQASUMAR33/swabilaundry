@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/outline';
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css"; // Import styles
 import Image from 'next/image';
 
 const FilterableTable = ({ subcategories = [], fetchSubcategories }) => {
@@ -21,6 +23,9 @@ const FilterableTable = ({ subcategories = [], fetchSubcategories }) => {
   });
   const [image, setImage] = useState(null);
 
+
+      // Dynamically import ReactQuill to avoid SSR issues in Next.js
+    const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
   useEffect(() => {
     if (Array.isArray(subcategories)) {
       setFilteredData(
@@ -326,13 +331,11 @@ const FilterableTable = ({ subcategories = [], fetchSubcategories }) => {
 
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Description</label>
-              <input
-                type="text"
+              <ReactQuill
                 value={newSubcategory.description}
-                onChange={(e) => {
-                  setNewSubcategory({ ...newSubcategory, description: e.target.value });
-                }}
-                className="mt-1 p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onChange={(value) => setNewSubcategory({ ...newSubcategory, description: value })}
+                className="mt-1 border border-gray-300 rounded w-full"
+                theme="snow" // You can change this to "bubble" if needed
               />
             </div>
 

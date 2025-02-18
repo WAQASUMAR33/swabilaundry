@@ -65,11 +65,7 @@ const generateSlug = (name) => {
 
 export async function GET() {
   try {
-    const categories = await prisma.category.findMany({
-      include: {
-        subcategories: true, // Fetch subcategories related to each category
-      },
-    });
+    const categories = await prisma.Subcategory.findMany();
 
     return NextResponse.json({ status: true, data: categories });
   } catch (error) {
@@ -157,10 +153,10 @@ export async function POST(request) {
 
 export async function DELETE(request, { params }) {
   try {
-    const id = parseInt(params.id, 10);
+    const id = parseInt(params.id);
 
     const deletedSubcategory = await prisma.subcategory.delete({
-      where: { id },
+      where: { slug:id },
     });
 
     return NextResponse.json({

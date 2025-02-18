@@ -294,17 +294,17 @@ const FilterableTable = () => {
 
             {/* Slug Input Field */}
             <div className="mb-4">
-  <label className="block text-sm font-medium text-gray-700">Slug</label>
-  <input
-    type="text"
-    value={newCategory.slug}
-    onChange={(e) => {
-      const slugValue = e.target.value.replace(/\s+/g, '-'); // Replace spaces with dashes
-      setNewCategory({ ...newCategory, slug: slugValue });
-    }}
-    className="mt-1 p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-  />
-</div>
+              <label className="block text-sm font-medium text-gray-700">Slug</label>
+              <input
+                type="text"
+                value={newCategory.slug}
+                onChange={(e) => {
+                  const slugValue = e.target.value.replace(/\s+/g, '-'); // Replace spaces with dashes
+                  setNewCategory({ ...newCategory, slug: slugValue });
+                }}
+                className="mt-1 p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
             {newCategory.imageUrl && (
               <div className="mb-4">
