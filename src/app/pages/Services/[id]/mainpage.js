@@ -76,7 +76,7 @@ const ServicesPage = ({ id }) => {
           <div className="w-full md:w-1/2">
             <div className="relative w-full aspect-video">
               <Image
-                src={`${imageBaseUrl}/${location.imageUrl}`}
+                src={`https://swabiapp.rapidtechpro.com/uploads/${location.imageUrl}`}
                 alt={location.name || location.name}
                 width={0}
                 height={0}

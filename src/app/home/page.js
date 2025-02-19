@@ -49,25 +49,25 @@ export default function Page() {
       {homepageData && (
         <>
           <Productpropcomponent
-            image={`${BASE_IMAGE_URL}/${homepageData.img1}`}
+            image={`https://swabiapp.rapidtechpro.com/uploads/${homepageData.img1}`}
             heading={homepageData.heading1}
             content={homepageData.content1}
             align="left"
           />
           <Productpropcomponent
-            image={`${BASE_IMAGE_URL}/${homepageData.img2}`}
+            image={`https://swabiapp.rapidtechpro.com/uploads/${homepageData.img2}`}
             heading={homepageData.heading2}
             content={homepageData.content2}
             align="right"
           />
           <Productpropcomponent
-            image={`${BASE_IMAGE_URL}/${homepageData.img3}`}
+            image={`https://swabiapp.rapidtechpro.com/uploads/${homepageData.img3}`}
             heading={homepageData.heading3}
             content={homepageData.content3}
             align="left"
           />
           <Productpropcomponent
-            image={`${BASE_IMAGE_URL}/${homepageData.img4}`}
+            image={`https://swabiapp.rapidtechpro.com/uploads/${homepageData.img4}`}
             heading={homepageData.heading4}
             content={homepageData.content4}
             align="right"

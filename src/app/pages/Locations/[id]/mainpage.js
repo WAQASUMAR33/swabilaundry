@@ -15,7 +15,7 @@ const LocationsPage = ({ id }) => {
   const [error, setError] = useState(null);
 
   // Get the base URL for images from .env
-  const imageBaseUrl = process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL;
+  const imageBaseUrl = process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL || "https://swabiapp.rapidtechpro.com/uploads";
 
   useEffect(() => {
     const fetchLocationData = async () => {
@@ -29,9 +29,13 @@ const LocationsPage = ({ id }) => {
         if (!response.ok) {
           throw new Error(`Failed to fetch location data: ${response.status}`);
         }
+        
 
         const data = await response.json();
+        console.log("API Response:", data);
+
         setLocation(data?.data || data); // Handle cases where `data` is wrapped
+    
       } catch (error) {
         console.error("Error fetching location data:", error);
         setError(error.message);
@@ -74,14 +78,14 @@ const LocationsPage = ({ id }) => {
           {/* Left Side - Image */}
           <div className="w-full md:w-1/2">
             <div className="relative w-full aspect-video">
-              <Image
-                src={`${imageBaseUrl}/${location.imageUrl}`}
-                alt={location.name || location.name}
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-[100vw] h-auto rounded-lg shadow-md object-cover"
-              />
+            <Image
+              src={`https://swabiapp.rapidtechpro.com/uploads/${location.imageUrl}`}
+              alt={location.name || "Location Image"}
+              width={500} // Set a default width
+              height={300} // Set a default height
+              className="w-full h-auto rounded-lg shadow-md object-cover"
+              unoptimized // Prevents Next.js from trying to optimize external images
+            />
             </div>
           </div>
         
