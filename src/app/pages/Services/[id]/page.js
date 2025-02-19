@@ -2,7 +2,7 @@ import React from "react";
 import CompanyDetail from "./mainpage";
 
 export async function generateMetadata({ params }) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
   try {
     const res = await fetch(`${baseUrl}/api/subcategories/${params.id}`, { cache: 'no-store' });
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     const subcategory = result.data;
 
     return {
-      title: subcategory?.meta_title || subcategory?.name || 'Service Details',
+      title: subcategory?.meta_title || subcategory?.name || 'Laundry Services',
       description: subcategory?.meta_description || '',
       keywords: subcategory?.meta_keywords || '',
     };
