@@ -75,8 +75,8 @@ const LocationsPage = ({ id }) => {
           <div className="w-full md:w-1/2">
             <div className="relative w-full aspect-video">
               <Image
-                src={location.imageUrl ? `${imageBaseUrl}/${location.imageUrl}` : "/placeholder.jpg"}
-                alt={location.image_alt || location.name}
+                src={`${imageBaseUrl}/${location.imageUrl}`}
+                alt={location.name || location.name}
                 width={0}
                 height={0}
                 sizes="100vw"

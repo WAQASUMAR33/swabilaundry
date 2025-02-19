@@ -15,7 +15,8 @@ const ServicesPage = ({ id }) => {
   const [error, setError] = useState(null);
 
   // Get the base URL for images from .env
-  const imageBaseUrl = process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL;
+  const imageBaseUrl = process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL || "https://swabiapp.rapidtechpro.com/uploads";
+
 
   useEffect(() => {
     const fetchLocationData = async () => {
@@ -76,7 +77,7 @@ const ServicesPage = ({ id }) => {
             <div className="relative w-full aspect-video">
               <Image
                 src={`${imageBaseUrl}/${location.imageUrl}`}
-                alt={location.image_alt || location.name}
+                alt={location.name || location.name}
                 width={0}
                 height={0}
                 sizes="100vw"
