@@ -29,11 +29,8 @@ const LocationsPage = ({ id }) => {
         if (!response.ok) {
           throw new Error(`Failed to fetch location data: ${response.status}`);
         }
-        
-
         const data = await response.json();
         console.log("API Response:", data);
-
         setLocation(data?.data || data); // Handle cases where `data` is wrapped
     
       } catch (error) {
