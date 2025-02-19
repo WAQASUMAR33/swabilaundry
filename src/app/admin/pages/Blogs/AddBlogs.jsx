@@ -109,7 +109,7 @@ const AddBlogs = () => {
     title: "",
     description: "",
     image: "",
-    category: "", // Change to string for single category
+    category: "", 
     meta_title: "",
     meta_description: "",
     meta_focusKeyword: "",
