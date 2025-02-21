@@ -57,7 +57,7 @@ export default function Pricing() {
       <PricingTag />
       <PricingSection />
       <FAQSection />
-      <AboveFooter />
+
     </>
   );
 }

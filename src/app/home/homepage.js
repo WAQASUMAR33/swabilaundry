@@ -9,7 +9,9 @@ import OrderForm from "@/components/orderform";
 import Productpropcomponent from "@/components/productprop";
 import Testimonials from "@/components/testimonial";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Navbar from "@/components/DesktopNavbar";
+import DesktopNavbar from "@/components/DesktopNavbar";
+import MobileNavbar from "@/components/MobileNavbar";
+
 
 const BASE_IMAGE_URL = process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL;
 
@@ -38,7 +40,10 @@ export default function HPage() {
 
   return (
     <>
-      <Navbar />
+       <nav className="w-full flex justify-between items-center bg-white shadow-lg top-0 left-0 right-0 z-50">
+      <DesktopNavbar />
+      <MobileNavbar />
+    </nav>
       <Hero />
      
       <OrderForm />
