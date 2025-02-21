@@ -38,7 +38,11 @@ export default function Blog() {
       <Head>
         <title>Blog Page</title>
       </Head>
-      <main className="container mx-auto px-4 py-4">
+
+      <div className=' pt-20'>
+
+      </div>
+      <main className="container-fluid mx-auto px-2 py-4">
         <h1 className="text-4xl font-bold text-start">Blog Page</h1>
 
         {/* Blog Slider */}
@@ -61,7 +65,7 @@ export default function Blog() {
       </main>
 
       {/* Blog Section & Subscribe */}
-      <BlogSection blogs={blogs} title="Perfume" /> 
+      <BlogSection blogs={blogs} title="Dry Cleaning" /> 
       <Subscribe /> 
     </div>
   );

@@ -40,9 +40,10 @@ export default function HPage() {
     <>
       <Navbar />
       <Hero />
-      <LaundryServices />
+     
       <OrderForm />
-      <WhyChooseUs />
+      <LaundryServices />
+      {/* <WhyChooseUs /> */}
       {/* <Benefits /> */}
       <HowItWorks />
 

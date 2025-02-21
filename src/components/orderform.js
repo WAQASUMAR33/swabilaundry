@@ -65,12 +65,12 @@ const OrderForm = () => {
       {/* Left Section: Shorter Instructions */}
       <div className="w-full md:w-1/2 p-6 rounded-lg mb-6 md:mb-0">
         <h2 className="text-3xl font-bold mb-4">Pick Up & Delivery (100% Free)</h2>
-        <p className="text-lg mb-4">Book your **free pickup** and enjoy quality laundry services at home.</p>
+        <p className="text-lg mb-4">Book your free pickup and enjoy quality laundry services at home.</p>
         
         <ul className="list-disc ml-6 text-lg">
-          <li>**HomeCare**: For your household linens.</li>
-          <li>**Clean & Press**: For garment care.</li>
-          <li>**Wash & Fold**: For everyday clothes.</li>
+          <li><b>HomeCare</b>: For your household linens.</li>
+          <li><b>Clean & Press</b>: For garment care.</li>
+          <li><b>Wash & Fold</b>: For everyday clothes.</li>
         </ul>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4">How to Order:</h3>
