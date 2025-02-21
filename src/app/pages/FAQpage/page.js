@@ -2,10 +2,9 @@
 import React from 'react';
 import Head from 'next/head';
 import FaqSection from './components/Faqsection';
-import Benifit from '../../../components/Benefits';
 import OrderForm from '../../../components/orderform';
 import WhyChooseUs from '../../../components/WhyChooseUs';
-import metadata from './metadata'
+
 const FAQ = () => {
   return (
     <>
