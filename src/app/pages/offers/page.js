@@ -87,7 +87,7 @@ export default function Offers() {
       </Head>
 
       <OffersTag />
-      <div className="container mx-auto px-10">
+      <div className="container-fluid px-10 ">
         <div>
           <h1 className="text-center text-4xl font-bold pt-10">Current Offers</h1>
           <p className="text-center text-lg font-thin md:w-[1200px] mx-auto py-10">
@@ -95,11 +95,11 @@ export default function Offers() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 md:gap-[60px] gap-10 md:px-40">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+        <div className="grid md:grid-cols-3 md:gap-[60px] gap-10 md:px-40 ">
+          {[1, 2, 3, 4, 5, 6,7].map((i) => (
             <Offerscards
               key={i}
-              imageSrc={`/offers/offer (${i}).jpg`}
+              imageSrc={`/offers/offer${i}.jpg`}
               imageAlt={`Laundry Offer ${i} - Swabi Laundry`}
               isActive={activeCard === i}
               onClick={handleCardClick}
