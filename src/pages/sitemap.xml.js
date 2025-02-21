@@ -68,7 +68,7 @@ export async function getServerSideProps({ res }) {
         urls.push(createURL('https:///www.swabilaundry.ae/pages/privacypolicy', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/termsandconditions', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/privacypolicy', 'always', '0.8'));
-        urls.push(createURL('https:///www.swabilaundry.ae/pages/faqpage', 'always', '0.8'));
+        urls.push(createURL('https:///www.swabilaundry.ae/pages/faq', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/offers', 'always', '0.8'));
         urls.push(createURL('https:///www.swabilaundry.ae/pages/pricing', 'always', '0.8'));
 

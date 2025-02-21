@@ -1,7 +1,7 @@
 // pages/faq.js
 import React from 'react';
 import Head from 'next/head';
-import FaqSection from './components/Faqsection';
+import FaqSection from './components/FaqSection';
 import OrderForm from '../../../components/orderform';
 import WhyChooseUs from '../../../components/WhyChooseUs';
 

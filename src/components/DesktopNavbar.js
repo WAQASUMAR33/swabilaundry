@@ -138,7 +138,7 @@ const DesktopNavbar = () => {
 
           <Link href="/pages/offers/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Offers</Link>
           <Link href="/pages/pricing/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Price</Link>
-          <Link href="/pages/faqpage/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">FAQ</Link>
+          <Link href="/pages/faq/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Faq's</Link>
           <Link href="/pages/blog/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Blog</Link>
         </div>
 

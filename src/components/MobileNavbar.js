@@ -52,7 +52,7 @@ const MobileNavbar = () => {
             <Link href="/pages/businesspage" className="nav-link hover:bg-gray-200 px-4 py-2 rounded-lg" onClick={closeMobileMenu}>
               For business
             </Link>
-            <Link href="/pages/faqpage" className="nav-link hover:bg-gray-200 px-4 py-2 rounded-lg" onClick={closeMobileMenu}>
+            <Link href="/pages/faq" className="nav-link hover:bg-gray-200 px-4 py-2 rounded-lg" onClick={closeMobileMenu}>
               FAQ
             </Link>
           </div>
