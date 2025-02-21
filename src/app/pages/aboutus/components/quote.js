@@ -1,6 +1,20 @@
-import React from 'react';
+"use client"
+import React from "react";
+import { sendGTMEvent } from "@next/third-parties/google"; // Ensure this is imported
 
 function Quote() {
+  const phoneNumber = "971589920080";
+  const message =
+    "Hi Swabi Laundry team. I would like to know about the pricing, service, and want to schedule a free pickup.";
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  const handleClick = () => {
+    sendGTMEvent({ event: "whatsappclick", value: "kjxyz" });
+    console.log("WhatsApp link clicked");
+    window.open(whatsappLink, "_blank"); // Opens WhatsApp chat in new tab
+  };
+
   return (
     <div className="bg-blue-500 md:h-[500px] mb-20 relative">
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -14,17 +28,16 @@ function Quote() {
         <p className="text-lg md:text-xl text-white mt-5 max-w-2xl mx-auto">
           Experience the Swabi Laundry difference today!
         </p>
-        {/* Add a CTA button to encourage action */}
-        <a
-          href="/book-now" // Update the link as per your requirements
-          className="mt-8 bg-orange-500 text-white py-3 px-8 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-all duration-300"
+        {/* WhatsApp CTA Button */}
+        <span
+          onClick={handleClick}
+          className="mt-8 bg-orange-500 text-white py-3 px-8 rounded-lg font-semibold text-lg hover:bg-orange-600 transition-all duration-300 cursor-pointer"
         >
           Book Now
-        </a>
+        </span>
       </div>
     </div>
   );
 }
 
 export default Quote;
-

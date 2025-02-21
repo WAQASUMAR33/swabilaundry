@@ -43,7 +43,7 @@ export default function HPage() {
       <LaundryServices />
       <OrderForm />
       <WhyChooseUs />
-      <Benefits />
+      {/* <Benefits /> */}
       <HowItWorks />
 
       {homepageData && (

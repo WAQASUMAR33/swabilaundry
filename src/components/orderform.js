@@ -13,13 +13,22 @@ const OrderForm = () => {
   const [buttonText, setButtonText] = useState('Submit');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Handle Date and Time Selection
   const handleDateChange = (date, dateString) => setPickupDate(dateString);
   const handleTimeChange = (time, timeString) => setPickupTime(timeString);
 
+  // ✅ Moved handleClick Outside handleSubmit
+  const handleClick = () => {
+    sendGTMEvent({ event: "whatsappclick", value: "xyz" });
+    console.log("WhatsApp link clicked");
+    window.open("https://wa.me/971589920080?text=" + encodeURIComponent("Hi Swabi Laundry team. I would like to know about the pricing, service, and want to schedule a free pickup."), "_blank");
+  };
+
+  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText('Sending...');
-    sendGTMEvent({ event: 'whatsappclick', value: 'xyz' });
+    sendGTMEvent({ event: 'formSubmit', value: 'order_submission' });
 
     const formData = new FormData(e.target);
     formData.append('pickupDate', pickupDate);
@@ -42,9 +51,9 @@ const OrderForm = () => {
       } else {
         alert(data.message);
       }
-      setButtonText('Submit');
     } catch (error) {
       alert("There was a problem sending the email.");
+    } finally {
       setButtonText('Submit');
     }
   };
@@ -73,16 +82,16 @@ const OrderForm = () => {
 
         <div className="mt-6">
           <p className="font-semibold">Need help? Reach us:</p>
-          {/* WhatsApp Contact Button */}
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="inline-block bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-700">
+          {/* ✅ Fixed WhatsApp Contact Button */}
+          <span onClick={handleClick} className="inline-block bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-700 cursor-pointer">
             Chat with us on WhatsApp
-          </a>
+          </span>
         </div>
 
         <div className="mt-4">
           <p className="font-semibold">Or call us directly:</p>
           {/* Call Us Button */}
-          <a href="tel:+1234567890" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+          <a href="tel:+971589920080" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700">
             Call Us Now
           </a>
         </div>
