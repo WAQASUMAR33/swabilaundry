@@ -1,47 +1,34 @@
-"use client"; // Mark this as a Client Component
-
-import Head from "next/head";
-import AboveFooter from "@/components/abovefooter";
-import Navbar from "@/components/Header";
-import React from "react";
-import FAQTag from "./components/faqtag";
-import FAQ from "./components/Faqsection";
-import ServiceLocations from "./components/ServiceLocations";
-import { metadata } from "./metadata"; // Import metadata from the separate file
-
-export default function FAQPage() {
-  const pageUrl = `${metadata.siteUrl}/${metadata.slug}`;
-
+// pages/faq.js
+import React from 'react';
+import Head from 'next/head';
+import FaqSection from './components/Faqsection';
+import Benifit from '../../../components/Benefits';
+import OrderForm from '../../../components/orderform';
+import WhyChooseUs from '../../../components/WhyChooseUs';
+import metadata from './metadata'
+const FAQ = () => {
   return (
-    <div className="mt-20">
+    <>
       <Head>
-        {/* Primary Meta Tags */}
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="keywords" content={metadata.keywords} />
-        <meta name="author" content="Swabi Laundry" />
-        <link rel="canonical" href={pageUrl} />
-
-        {/* Open Graph / Facebook Meta Tags */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={`${metadata.siteUrl}${metadata.image}`} />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={pageUrl} />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={`${metadata.siteUrl}${metadata.image}`} />
+        <title>FAQ - Swabi Laundry</title>
+        <meta name="description" content="Frequently Asked Questions about Swabi Laundry. Learn more about our services, policies, and how we can help you." />
       </Head>
 
-      <FAQTag />
-      <FAQ />
-      <ServiceLocations />
-      <br />
-    
-    </div>
+      <div className=' pt-20'></div>
+      <div className="bg-gray-100 py-8 md:py-12">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          {/* <div className="text-center mb-8 md:mb-12">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">Frequently Asked Questions</h1>
+          </div> */}
+          <FaqSection />
+          {/* Additional Sections */}
+          <WhyChooseUs />
+          <OrderForm />
+        
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+export default FAQ;

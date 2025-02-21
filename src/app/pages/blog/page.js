@@ -85,7 +85,7 @@ function BlogPosts({ blogs }) {
               height={1000}
               // placeholder="blur"
               // blurDataURL="data:image/jpeg;base64,/9j/4AAQSk..." // Replace with actual base64 placeholder
-               src={`${process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL}/${post.image}`}
+               src={`https://swabiapp.rapidtechpro.com/uploads/${post.image}`}
               alt={post.title || "Blog Image"}
               className="w-full h-48 object-cover"
             />
@@ -108,7 +108,7 @@ function BlogPosts({ blogs }) {
                 dangerouslySetInnerHTML={{ __html: post.description }}
               />
 
-              <Link href={`/customer/pages/blog/${post.id}`} className="text-blue-600 hover:underline">
+              <Link href={`/pages/blog/${post.web_slug}`} className="text-blue-600 hover:underline">
                 Read more
               </Link>
             </div>

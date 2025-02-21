@@ -41,7 +41,7 @@ const BlogSection = ({ blogs, title, category }) => {
   };
 
   const handleBlogClick = blog => {
-    router.push(`/customer/pages/blog/${blog.id}`);
+    router.push(`/pages/blog/${blog.web_slug}`);
   };
 
   return (
@@ -83,7 +83,7 @@ const BlogSection = ({ blogs, title, category }) => {
                     height={1000}
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSk..." // Replace with actual Base64 placeholder
-                    src={blog.image ? `${process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL}/${blog.image}` : "/fallback.jpg"}
+                    src={blog.image ? `https://swabiapp.rapidtechpro.com/uploads/${blog.image}` : "/fallback.jpg"}
                     alt={blog.title || "Blog Image"}
                     className="absolute inset-0 w-full h-full object-cover rounded-t-lg"
                   />

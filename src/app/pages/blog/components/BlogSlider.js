@@ -60,12 +60,12 @@ export default function BlogCategorySlider({ category, blogs }) {
                   className="w-full flex-shrink-0"
                   style={{ flexBasis: '100%' }}
                 >
-                  <a href={`/customer/pages/blog/${blog.id}`}>
+                  <a href={`/pages/blog/${blog.web_slug}`}>
                     <div className="relative w-full h-64 sm:h-80 lg:h-[700px]">
                       <Image
                         width={1000}
                         height={1000}
-                        src={`${process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL}/${blog.image}`}
+                        src={`https://swabiapp.rapidtechpro.com/uploads/${blog.image}`}
                         alt={blog.title}
                         className="absolute inset-0 w-full h-full object-cover rounded-lg"
                       />
@@ -91,13 +91,13 @@ export default function BlogCategorySlider({ category, blogs }) {
                   <Image
                     width={1000}
                     height={1000}
-                    src={`${process.env.NEXT_PUBLIC_UPLOADED_IMAGE_URL}/${blog.image}`}
+                    src={`https://swabiapp.rapidtechpro.com/uploads/${blog.image}`}
                     alt={blog.title}
                     className="w-full h-24 object-cover rounded-lg"
                   />
                 </div>
                 <div className="w-2/3">
-                  <a href={`/customer/pages/blog/${blog.id}`}>
+                  <a href={`/pages/blog/${blog.web_slug}`}>
                     <h4 className="text-md font-bold text-gray-700">{blog.title}</h4>
                     <p className="text-sm text-gray-500 truncate">{blog.description}</p>
                   </a>

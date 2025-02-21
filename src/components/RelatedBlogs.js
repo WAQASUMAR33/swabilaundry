@@ -51,46 +51,46 @@ const RelatedBlogs = ({ category, currentBlogId }) => {
     fetchBlogs();
   }, [category, currentBlogId]);
 
-  useEffect(() => {
-    const fetchStores = async () => {
-      try {
-        const response = await fetch('/api/company');
-        if (!response.ok) {
-          throw new Error('Failed to fetch stores');
-        }
-        const data = await response.json();
+  // useEffect(() => {
+  //   const fetchStores = async () => {
+  //     try {
+  //       const response = await fetch('/api/company');
+  //       if (!response.ok) {
+  //         throw new Error('Failed to fetch stores');
+  //       }
+  //       const data = await response.json();
 
-        setCompanies(data);
-        setSimilarStores(getRandomSelection(data, 4));
-      } catch (error) {
-        setErrorStores(error.message);
-      } finally {
-        setLoadingStores(false);
-      }
-    };
+  //       setCompanies(data);
+  //       setSimilarStores(getRandomSelection(data, 4));
+  //     } catch (error) {
+  //       setErrorStores(error.message);
+  //     } finally {
+  //       setLoadingStores(false);
+  //     }
+  //   };
 
-    fetchStores();
-  }, [category]);
+  //   fetchStores();
+  // }, [category]);
 
-  useEffect(() => {
-    const fetchOffers = async () => {
-      try {
-        const response = await fetch('/api/offers');
-        if (!response.ok) {
-          throw new Error('Failed to fetch offers');
-        }
-        const data = await response.json();
+  // useEffect(() => {
+  //   const fetchOffers = async () => {
+  //     try {
+  //       const response = await fetch('/api/offers');
+  //       if (!response.ok) {
+  //         throw new Error('Failed to fetch offers');
+  //       }
+  //       const data = await response.json();
 
-        setSimilarOffers(getRandomSelection(data, 4));
-      } catch (error) {
-        setErrorOffers(error.message);
-      } finally {
-        setLoadingOffers(false);
-      }
-    };
+  //       setSimilarOffers(getRandomSelection(data, 4));
+  //     } catch (error) {
+  //       setErrorOffers(error.message);
+  //     } finally {
+  //       setLoadingOffers(false);
+  //     }
+  //   };
 
-    fetchOffers();
-  }, [category]);
+  //   fetchOffers();
+  // }, [category]);
 
   const getCompanyLogo = (companyId) => {
     const company = companies.find((company) => company.id === companyId);
@@ -138,7 +138,7 @@ const RelatedBlogs = ({ category, currentBlogId }) => {
                   className="w-16 h-16 object-cover rounded-lg mr-4"
                 />
                 <div className='w-60'>
-                  <Link href={`/blog/${blog.web_slug}`} className="text-blue-500 hover:underline font-semibold">
+                  <Link href={`/pages/blog/${blog.web_slug}`} className="text-blue-500 hover:underline font-semibold">
                     {blog.title}
                   </Link>
                   <div
