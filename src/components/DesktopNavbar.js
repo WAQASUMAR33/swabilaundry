@@ -49,9 +49,21 @@ const DesktopNavbar = () => {
 
         {/* Navigation Links */}
         <div className="flex space-x-4 text-lg">
-          <Link href="/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Home</Link>
-          <Link href="/pages/aboutus/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">About</Link>
+        <Link 
+  href="/" 
+  className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+  style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+>
+  Home
+</Link>
 
+<Link 
+  href="/pages/aboutus/" 
+  className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+  style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+>
+  About
+</Link>
 
   {/* Mega Menu - Services */}
 <div
@@ -59,9 +71,9 @@ const DesktopNavbar = () => {
   onMouseEnter={() => setServicesMenuOpen(true)}
   onMouseLeave={() => setServicesMenuOpen(false)}
 >
-  <button className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">
-    Services
-  </button>
+<button className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}>
+  Services
+</button>
 
   {isServicesMenuOpen && (
     <div
@@ -73,7 +85,7 @@ const DesktopNavbar = () => {
         services.map((category) => (
           <div key={category.id} className="col-span-1">
             {/* Category Name */}
-            <h3 className="text-md font-semibold text-gray-900 border-b pb-1 mb-2">
+            <h3 className="text-md font-normal text-gray-900 border-b pb-1 mb-2">
               {category.name}
             </h3>
 
@@ -108,7 +120,10 @@ const DesktopNavbar = () => {
             className="relative"
             onMouseEnter={() => setLocationMenuOpen(true)}
             onMouseLeave={() => setLocationMenuOpen(false)} >
-            <button className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">
+            <button 
+              className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+              style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+            >
               Locations
             </button>
 
@@ -136,10 +151,37 @@ const DesktopNavbar = () => {
           </div>
 
 
-          <Link href="/pages/offers/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Offers</Link>
-          <Link href="/pages/pricing/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Price</Link>
-          <Link href="/pages/faq/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Faq's</Link>
-          <Link href="/pages/blog/" className="nav-link hover:bg-white hover:text-blue-600 px-4 py-2 hover:rounded-lg">Blog</Link>
+          <Link 
+  href="/pages/offers/" 
+  className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+  style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+>
+  Offers
+</Link>
+
+<Link 
+  href="/pages/pricing/" 
+  className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+  style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+>
+  Price
+</Link>
+
+<Link 
+  href="/pages/faq/" 
+  className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+  style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+>
+  FAQ's
+</Link>
+
+<Link 
+  href="/pages/blog/" 
+  className="nav-link font-normal text-[#747F8E] hover:text-blue-600 px-2 py-2" 
+  style={{ fontFamily: "'Poppins', sans-serif", textDecoration: "none" }}
+>
+  Blog
+</Link>
         </div>
 
         {/* WhatsApp Section */}

@@ -83,7 +83,7 @@ const OrderForm = () => {
         <div className="mt-6">
           <p className="font-semibold">Need help? Reach us:</p>
           {/* ✅ Fixed WhatsApp Contact Button */}
-          <span onClick={handleClick} className="inline-block bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-700 cursor-pointer">
+          <span onClick={handleClick} className="inline-block bg-[#92C644] text-white py-2 px-4 rounded-md hover:bg-green-700 cursor-pointer">
             Chat with us on WhatsApp
           </span>
         </div>
@@ -118,7 +118,7 @@ const OrderForm = () => {
               <TimePicker use12Hours format="h:mm a" onChange={handleTimeChange} className="w-full p-3 border rounded-md shadow-sm" placeholder="Pickup Time*" />
             </Space>
           </div>
-          <button type="submit" className="w-full bg-orange-500 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-md shadow-md">
+          <button type="submit" className="w-full bg-[#92C644] hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-md shadow-md">
             {buttonText}
           </button>
         </form>

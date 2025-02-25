@@ -5,7 +5,7 @@ import Quote from "./components/quote";
 import React from "react";
 import ChoresComponent from "./components/chorecomponent";
 import AboveFooter from "@/components/abovefooter";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import WhyChooseUs from "../../../components/laundryservices";
 
 export const metadata = {
   title: "About Us | Swabi Laundry",

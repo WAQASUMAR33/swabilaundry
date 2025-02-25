@@ -8,7 +8,7 @@ const Productpropcomponent = ({ image, heading, content, align }) => {
         <img src={image} alt="Feature" className="w-full h-auto rounded-lg" />
       </div>
       <div className="flex flex-col gap-4 text-center md:text-left md:w-[50%]">
-        <h2 className="text-xl md:text-4xl font-bold text-gray-600">{heading}</h2>
+        <h2 className="text-xl md:text-4xl font-bold text-[#92C644]">{heading}</h2>
         <div className="text-lg">
         <p
           className="text-base md:text-lg"
