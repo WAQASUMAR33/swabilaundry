@@ -5,6 +5,9 @@ import React, { useState, useEffect } from "react";
 import OffersTag from "./components/tag";
 import Offerscards from "./components/offerscards";
 import Modal from "./components/Modal";
+import OrderForm from '../../../components/orderform';
+import HowItWorks from "../../../components/HowItsWorks";
+import LaundryServices from "../../../components/laundryservices";
 import metadata from "./metadata"; // Import metadata
 
 export default function Offers() {
@@ -36,14 +39,12 @@ export default function Offers() {
   return (
     <>
       <Head>
-        {/* Primary SEO Meta Tags */}
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta name="keywords" content={metadata.keywords} />
         <meta name="author" content={metadata.author} />
         <link rel="canonical" href={pageUrl} />
 
-        {/* Open Graph / Facebook Meta Tags */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={metadata.openGraph.url} />
         <meta property="og:title" content={metadata.openGraph.title} />
@@ -53,14 +54,12 @@ export default function Offers() {
         <meta property="og:image:height" content={metadata.openGraph.images[0].height} />
         <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
 
-        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={pageUrl} />
         <meta name="twitter:title" content={metadata.openGraph.title} />
         <meta name="twitter:description" content={metadata.openGraph.description} />
         <meta name="twitter:image" content={metadata.openGraph.images[0].url} />
 
-        {/* Schema Markup for SEO (Structured Data) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -87,16 +86,15 @@ export default function Offers() {
       </Head>
 
       <OffersTag />
-      <div className="container-fluid px-10 ">
-        <div>
-          <h1 className="text-center text-4xl font-bold pt-10">Current Offers</h1>
-          <p className="text-center text-lg font-thin md:w-[1200px] mx-auto py-10">
-            Take advantage of our daily/weekly ongoing offers for your laundry needs. Enjoy premium laundry services at amazing prices.
-          </p>
-        </div>
+      
+      <div className="w-full min-h-screen flex flex-col items-center space-y-6">
+        <h1 className="text-center text-4xl font-bold pt-10">Current Offers</h1>
+        <p className="text-center text-lg font-thin max-w-4xl mx-auto px-4">
+          Take advantage of our daily/weekly ongoing offers for your laundry needs. Enjoy premium laundry services at amazing prices.
+        </p>
 
-        <div className="grid md:grid-cols-3 md:gap-[60px] gap-10 md:px-40 ">
-          {[1, 2, 3, 4, 5, 6,7].map((i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 w-full max-w-7xl px-4 md:px-10">
+          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
             <Offerscards
               key={i}
               imageSrc={`/offers/offer${i}.jpg`}
@@ -109,9 +107,10 @@ export default function Offers() {
       </div>
 
       <Modal show={showModal} onClose={closeModal} imageSrc={modalImage} />
-
-      <br />
-    
+      <HowItWorks/>
+      <OrderForm/>
+     
+      <LaundryServices/>
     </>
   );
 }

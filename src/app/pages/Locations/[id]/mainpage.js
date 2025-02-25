@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import DOMPurify from 'dompurify';
 import Image from 'next/image';
-import Benifit from '../../../../components/Benefits';
+import Benifit from '../../../../components/laundryservices';
 import OrderForm from '../../../../components/orderform';
-import WhyChooseUs from '../../../../components/WhyChooseUs';
+import WhyChooseUs from '../../../../components/HowItsWorks';
 import Footer from '../../../../components/abovefooter';
 import Header from '../../../../components/DesktopNavbar';
 
